@@ -27,7 +27,7 @@ const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
 const sql = require("sqlite");
 const dateFormat = require('dateformat'); 
 const pretty = require('pretty-ms') 
-const prefix = './';
+const prefix = '$';
 var table = require('table').table
 var ti={}  
 ,spee={}
@@ -35,7 +35,7 @@ var ti={}
 
 client.on('ready', function(){
     var ms = 60000 ;
-    var setGame = ['i love you','Type ./help'];
+    var setGame = ['Toxictic's Community','Type $help'];
     var i = -1;
     var j = 0;
     setInterval(function (){
@@ -62,81 +62,63 @@ if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send
     let pages = [`**
         ***__General orders__***
 **
-${prefix}allbots/لعرض جميع البوتات الي بالسيرفر
-${prefix}server/يعرض لك معلومات عن السيرفر
-${prefix}bot/يعرض لك كل معلومات البوت
-${prefix}count/يعرض لك عدد الاشخاص بالسيرفر بدون بوتات
-${prefix}invites/ يعرض لك  عدد انفايتاتك بالسيرفر 
-${prefix}invinfo <invitelink here> / لمعلومات عن الدعوه
- مثال : invinfo m82n8P
-${prefix}invite-codes/يعرض لك روابط الانفايتات حكك في السيرفر 
-${prefix}cal/اله حاسبة
-${prefix}trans <language> <any thing>/يترجم لك الي تبيه من اي لغة
-${prefix}short/يختصر لك رابط كبير الى رابط صغير
-${prefix}tag/يكتب لك الكلمة بشكل جميل وكبير
-${prefix}google/للبحث في قوقل عن طريق الدسكورد
-${prefix}perms/يعرض لك برمشناتك بالسيرفر
-${prefix}z5rf/يزخرف لك كلمة او جملة
-${prefix}rooms/يعرض لك كل الرومات الي بالسيرفر مع عددها
-${prefix}roles/يعرض لك كل الرانكات بالسيرفر بشكل جميل
-${prefix}emojilist/يعرض لك كل الايموجيات الي بالسيرفر
-${prefix}say/يكرر الكلام الي تكتبو
-${prefix}image/صورة السيرفر
-${prefix}members/عرض لك عدد كل حالات الاشخاص وعدد البوتات وعدد الاشخاص
-${prefix}id/معلومات عنك
-${prefix}bans / عدد الاشخاص المبندة 
-${prefix}avatar/صورتك او صورة الي تمنشنو
-${prefix}embed/يكرر الي تقولو بشكل حلو
-${prefix}emoji <any things>/لتحويل اي كلمه تقولها الي ايموجي
-${prefix}inv/لدعوة البوت الى سيرفرك
-${prefix}support/سيرفر الدعم
-${prefix}contact/ارسال اقتراح او لمراسلة صاحب البوت
+${prefix}allbots/ To show all the bots on the server.
+${prefix}server/ Information about the server
+${prefix}bot/All the information about the bot.
+${prefix}count/List of the players without the bots.
+${prefix}invites/Displays the number of invites server
+${prefix}invinfo <invitelink here> /For invite link.
+${prefix}cal/Calculator
+${prefix}trans <language> <any thing>/Translate everything you want from any languages.
+${prefix}tag/It make the text very good.
+${prefix}google/To search anything from google at discord.
+${prefix}perms/It showes you all the permissions you have on the server.
+${prefix}rooms/It showes you how much rooms on the server.
+${prefix}roles/It showes you all the ranks on the server.
+${prefix}emojilist/It showes you all the emojilist on the server.
+${prefix}say/Duplicate the text you sent.
+${prefix}image/Image of the server.
+${prefix}members/It showes you all the members and the bots.
+${prefix}id/Information about your account.
+${prefix}bans / It showes you all the members who got banned.
+${prefix}avatar/It showes your avatar.
+${prefix}emoji <any things>/To make any words to an emoji!
+${prefix}inv/To invite the bot to your server.
+${prefix}support/Support server.
+${prefix}contact/To contact to the owner who develop the bot.
 **
   `
 ,`
         ***__Administrative Orders__***
 **
-${prefix}move @user /  لسحب الشخص الى رووم
-${prefix}give all <rank> / لأعطاء رتبة للجميع
-${prefix}give humans <rank> / لأعطاء رتبة للاشخاص فقط
-${prefix}give bots <rank> / لأعطاء رتبة لجميع البوتات
-${prefix}hchannel / اخفاء الشات
-${prefix}schannel / اضهار الشات المخفية
-${prefix}clr <numbr> / مسح الشات بعدد
-${prefix}clear / مسح الشات
-${prefix}mute @user <time> / اعطاء العضو ميوت 
-${prefix}unmute @user / لفك الميوت عن الشخص 
-${prefix}kick @user <reason> / طرد الشخص من السيرفر
-${prefix}ban @user <reason> / حضر الشخص من السيرفر
-${prefix}mutechannel / تقفيل الشات
-${prefix}unmutechannel / فتح الشات
-${prefix}ct <name> / انشاء شات
-${prefix}cv <name> / انشاء رووم فويس
-${prefix}temp / لانشاء روم مؤقت
-${prefix}delet <name> / مسح الشات او الرووم فويس
-${prefix}make <number> / ينشا لك الوان مع كم الوان تبي
-${prefix}color <number> / لختيار لون
-${prefix}deletecolors <number> / لحذف الالوان
+${prefix}move @user /  To move someone to your room.
+${prefix}give all <rank> / To give everyone the rank.
+${prefix}give humans <rank> / To give specific member.
+${prefix}give bots <rank> / To give all the bots rank.
+${prefix}hchannel / To evoid the chat from everyone.
+${prefix}clr <numbr> / Clear the chat with a number (USAGE $clr 50)
+${prefix}clear / Clear the chat.
+${prefix}mute @user <time> / To give someone mute with duration.
+${prefix}unmute @user / To unmute someone
+${prefix}kick @user <reason> / To kick someone from the server.
+${prefix}ban @user <reason> / To ban someone from the server permanantly.
+${prefix}mutechannel / To mute the chat from everyone.
+${prefix}unmutechannel / To unmute the chat.
+${prefix}ct <name> / To create a chat automaticly.
+${prefix}cv <name> / To create a voicechat room automaticly.
+${prefix}temp / To create a temporarly room automaticly.
+${prefix}delet <name> / To delete the specific room.
 **
    `,`
         ***__Games orders__***
  **       
-${prefix}rps / حجر ورقة مقص
-${prefix}speed / اسرع كتابة
-${prefix}quas / اسئلة عامة
-${prefix}نكت / نكت 
-${prefix}لعبة فكك / فكك
-${prefix}عواصم عشوائي/عواصم
-${prefix}لعبة كت تويت / كت تويت
-${prefix}roll <number> / قرعة
-${prefix}لو خيروك بطريقة حلوة / لو خيروك
-${prefix}لعبة مريم / مريم
-${prefix}فوائد ونصائح  / هل تعلم
-${prefix}يعطيك عقابات قاسية / عقاب 
+${prefix}rps / Rock paper scissors
+${prefix}roll <number> / Roll a number.
 =.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.=.
-welcome يتم الترحيب فى روم باسم
-G.setwelcomer <text channel name> لاختيار روم للترحيب
-${prefix}voiceonline / لتفعيل روم الفويس اونلاين
+welcome the person on ' #channel '
+${prefix}setwelcomer <text channel name> To choose room to welcome the people
+**..
+${prefix}voiceonline / To activate the room.
 **
    
 `]
@@ -1067,7 +1049,7 @@ command = command.slice(prefix.length);
 var args = message.content.split(" ").slice(1);
     if(command == "mute") {
     let tomute = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!tomute) return message.reply("**يجب عليك المنشن اولاّ**:x: ") .then(m => m.delete(5000));
+    if(!tomute) return message.reply("**you have to mentionned someone**:x: ") .then(m => m.delete(5000));
     if(tomute.hasPermission("MANAGE_MESSAGES"))return      message.channel.send('**للأسف لا أمتلك صلاحية** `MANAGE_MASSAGEES`');
     let muterole = message.guild.roles.find(`name`, "muted");
     //start of create role
@@ -1090,10 +1072,10 @@ var args = message.content.split(" ").slice(1);
     }
     //end of create role
     let mutetime = args[1];
-    if(!mutetime) return message.reply("**يرجى تحديد وقت الميوت**:x:");
+    if(!mutetime) return message.reply("**please edit the mute time**:x:");
   
     await(tomute.addRole(muterole.id));
-    message.reply(`<@${tomute.id}> تم اعطائه ميوت ومدة الميوت : ${ms(ms(mutetime))}`);
+    message.reply(`<@${tomute.id}>has been muted for : ${ms(ms(mutetime))}`);
     setTimeout(function(){
       tomute.removeRole(muterole.id);
       message.channel.send(`<@${tomute.id}> **انقضى الوقت وتم فك الميوت عن الشخص**:white_check_mark: `);
@@ -1107,14 +1089,14 @@ if(command === `unmute`) {
 if(!message.guild.member(client.user).hasPermission("MANAGE_ROLES")) return message.reply("**I Don't Have `MANAGE_ROLES` Permission**").then(msg => msg.delete(6000))
 
   let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-  if(!toMute) return message.channel.sendMessage("**عليك المنشن أولاّ**:x: ");
+  if(!toMute) return message.channel.sendMessage("**you have to mention first**:x: ");
 
   let role = message.guild.roles.find (r => r.name === "muted");
   
   if(!role || !toMute.roles.has(role.id)) return message.channel.sendMessage("**لم يتم اعطاء هذه شخص ميوت من الأساس**:x:")
 
   await toMute.removeRole(role)
-  message.channel.sendMessage("**لقد تم فك الميوت عن شخص بنجاح**:white_check_mark:");
+  message.channel.sendMessage("**has been unmuted**:white_check_mark:");
 
   return;
 
@@ -1172,9 +1154,9 @@ client.on('message', message => {
   if(!message.guild.member(client.user).hasPermission("BAN_MEMBERS")) return message.reply("**I Don't Have ` BAN_MEMBERS ` Permission**");
   let user = message.mentions.users.first();
   
-  if (message.mentions.users.size < 1) return message.reply("**منشن شخص**");
+  if (message.mentions.users.size < 1) return message.reply("**mention someone**");
   if (!message.guild.member(user)
-  .bannable) return message.reply("**يجب ان تكون رتبة البوت اعلي من رتبه الشخص المراد تبنيدة**");
+  .bannable) return message.reply("**the bots role must be higher than the mentioned member**");
 
 
   message.guild.member(user).ban(7, user);
@@ -1188,12 +1170,12 @@ client.on('message', message => {
        if(message.content === prefix + "mutechannel") {
                            if(!message.channel.guild) return message.reply('** This command only for servers**');
 
-   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__ليس لديك صلاحيات__**');
+   if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.reply(' **__you dont have permtions__**');
               message.channel.overwritePermissions(message.guild.id, {
             SEND_MESSAGES: false
 
               }).then(() => {
-                  message.reply("**__تم تقفيل الشات__ :white_check_mark: **")
+                  message.reply("**__chat is now closed__ :white_check_mark: **")
               });
                 }
 //FIRE BOT
@@ -1205,7 +1187,7 @@ client.on('message', message => {
             SEND_MESSAGES: true
 
               }).then(() => {
-                  message.reply("**__تم فتح الشات__:white_check_mark:**")
+                  message.reply("**__chat is now open__:white_check_mark:**")
               });
     }
        
@@ -1236,7 +1218,7 @@ if (command == "ct") {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'text');
-message.channel.sendMessage('تـم إنـشاء روم كـتابـي')
+message.channel.sendMessage('chat has been ccreated')
 
 }
 });
@@ -1247,7 +1229,7 @@ if (command == "cv") {
             if (!message.member.hasPermission('MANAGE_CHANNELS')) return message.reply("You Don't Have `MANAGE_CHANNELS` Premissions ");
         let args = message.content.split(" ").slice(1);
     message.guild.createChannel(args.join(' '), 'voice');
-message.channel.sendMessage('تم انشاء روم صوتى')
+message.channel.sendMessage('vc has been created')
 }
 });
 client.on("message", (message) => {
