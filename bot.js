@@ -58,8 +58,7 @@ client.on('ready', function(){
  console.log(` ???????????????????`);
 });
 client.on('message', message => {
-if (message.content.startsWith(prefix + 'help')) { /// This is The DMS Code Send The Help In DMS // Code By 1iSarah_
-    let pages = [`**
+if (message.content.startsWith(prefix + 'help'))
         ***__General orders__***
 **
 ${prefix}allbots/ To show all the bots on the server.
